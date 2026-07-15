@@ -26,7 +26,12 @@ jobs:
           --health-retries 5
 
     env:
-      DATABASE_URL: postgres://test_user:test_pass@localhost:5432/test_db
+      PGDATABASE: test_db
+      PGUSER: test_user
+      PGPASSWORD: test_pass
+      PGHOST: localhost
+      PGPORT: 5432
+      PGSSLMODE: disable
       DJANGO_SETTINGS_MODULE: clinic_booking.settings
       SECRET_KEY: test-secret-key-not-for-production
       DEBUG: "False"
