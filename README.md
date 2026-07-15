@@ -174,6 +174,25 @@ The Booking Service exposes a RESTful API with the following endpoints:
 
 [Clinic Booking](https://clinic-booking-t646.onrender.com)
 
+API endpoints are available under the `/api/v1/` prefix, for example:
+
+## API ENDPOINTS
+
+All endpoints are prefixed with `/api/v1/`. Full URLs are shown relative to the base deployment URL: `https://clinic-booking-t646.onrender.com`
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET`, `POST` | `/api/v1/doctors/` | List all doctors / Create a new doctor |
+| `GET`, `PUT`, `PATCH`, `DELETE` | `/api/v1/doctors/<doctor_id>/` | Retrieve, update, or delete a specific doctor |
+| `GET` | `/api/v1/doctors/<doctor_id>/availability/?date=YYYY-MM-DD` | Get available appointment slots for a doctor on a given date |
+| `GET`, `POST` | `/api/v1/patients/` | List all patients / Create a new patient |
+| `GET`, `PUT`, `PATCH`, `DELETE` | `/api/v1/patients/<patient_id>/` | Retrieve, update, or delete a specific patient |
+| `GET` | `/api/v1/patients/<patient_id>/appointments/` | List a patient's upcoming appointments |
+| `GET`, `POST` | `/api/v1/appointments/` | List all appointments / Book a new appointment |
+| `GET`, `PUT`, `PATCH`, `DELETE` | `/api/v1/appointments/<appointment_id>/` | Retrieve, update, or delete a specific appointment |
+| `PATCH` | `/api/v1/appointments/<appointment_id>/cancel/` | Cancel an appointment |
+| `PATCH` | `/api/v1/appointments/<appointment_id>/reschedule/` | Reschedule an appointment to a new time/doctor |
+
 ### Deployment trigger
 
 The pipeline deploys automatically when a pull request is merged into the main branch. Any push directly to main (which is what a merge produces) triggers the deploy job in the GitHub Actions workflow. Pull requests opened against main only run the test suite — they never trigger a deployment on their own, only after being merged.
