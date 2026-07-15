@@ -170,7 +170,7 @@ The Booking Service exposes a RESTful API with the following endpoints:
 
 ## SECTION THREE
 
-### Public Url
+### Public URL
 
 [Clinic Booking](https://clinic-booking-t646.onrender.com)
 
@@ -196,12 +196,12 @@ The CI/CD pipeline is defined in .github/workflows/action.yml and runs on GitHub
 
 ### 2. Give one example where an AI suggestion improved your work. What did you prompt it with?
 
-when deploying the app on render it help me catch a typo I write `gunicorn clinic_booking.wsgi.application` instead of `gunicorn clinic_booking.wsgi:application` and missing of gunicorn in requirement.txt. I used claude code.
+When deploying the app on Render, it helped me catch a typo I wrote `gunicorn clinic_booking.wsgi.application` instead of `gunicorn clinic_booking.wsgi:application` and missing of gunicorn in requirements.txt. I used Claude Code.
 
 ### 3. Give one example where AI output was wrong or incomplete and how you caught it
 
-when the AI was writing the test files it add put in place of patch on the endpoint (appointments/<uuid:appointment_id>/cancel/").
-I caught by running the test suite.
+When the AI was writing the test files, it added put instead of patch on the endpoint (appointments/<uuid:appointment_id>/cancel/").
+I caught it by running the test suite.
 
 ### Name two decisions you made without AI. Why did you trust your own judgment there?
 
