@@ -35,13 +35,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug - locate manage.py and requirements.txt
-        run: |
-          echo "--- manage.py locations ---"
-          find . -name manage.py
-          echo "--- requirements.txt locations ---"
-          find . -name requirements.txt
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -54,12 +47,15 @@ jobs:
           pip install -r requirements.txt
 
       - name: Check for missing migrations
+        working-directory: ./clinic_booking
         run: python manage.py makemigrations --check --dry-run
 
       - name: Apply migrations
+        working-directory: ./clinic_booking
         run: python manage.py migrate --noinput
 
       - name: Run test suite
+        working-directory: ./clinic_booking
         run: python manage.py test --verbosity=2
 
   deploy:
