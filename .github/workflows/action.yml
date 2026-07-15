@@ -10,6 +10,9 @@ jobs:
   test:
     name: Run test suite
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./clinic_booking/clinic_booking
 
     services:
       postgres:
