@@ -184,7 +184,7 @@ The CI/CD pipeline is defined in .github/workflows/action.yml and runs on GitHub
 
 **Test** — runs on every pull request targeting main and on every push to main. It spins up a disposable PostgreSQL 16 service container, installs dependencies from requirements.txt, checks for missing Django migrations (makemigrations --check --dry-run), applies migrations, and runs the full Django test suite (manage.py test). This acts as a quality gate — code with failing tests or unmigrated model changes cannot proceed to deployment.
 
-**Deploy** — runs only on a push to main, and only if the test job passes (needs: test). It sends a POST request to Render's deploy hook URL (stored as a GitHub secret, RENDER_DEPLOY_HOOK_URL), which triggers Render to pull the latest main branch, rebuild the app, and redeploy it.
+**Deploy** — runs only on a push to main, and only if the test job passes (needs: test). It sends a POST request to Render's deploy hook URL (stored as a GitHub secret, RENDER_DEPLOY_HOOK_URL), which triggers Render to pull the latest main branch, rebuild the app, and redeploy it. And also, I flagged on render to deploy only when the CI/CD passes the test.
 
 ## SECTION FOUR
 
