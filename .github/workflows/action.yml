@@ -10,10 +10,6 @@ jobs:
   test:
     name: Run test suite
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./clinic_booking/clinic_booking
-
     services:
       postgres:
         image: postgres:16
@@ -51,12 +47,15 @@ jobs:
           pip install -r requirements.txt
 
       - name: Check for missing migrations
+        working-directory: ./clinic_booking/clinic_booking
         run: python manage.py makemigrations --check --dry-run
 
       - name: Apply migrations
+        working-directory: ./clinic_booking/clinic_booking
         run: python manage.py migrate --noinput
 
       - name: Run test suite
+        working-directory: ./clinic_booking/clinic_booking
         run: python manage.py test --verbosity=2
 
   deploy:
