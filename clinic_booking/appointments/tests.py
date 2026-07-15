@@ -11,7 +11,7 @@ from .models import Doctor, Patient, Appointment
 class AppointmentAPITests(TestCase):
     def setUp(self):
         self.client = APIClient()
-        self.doctor1 = Doctor.objects.create(name="Dr. Smith", email="dr.smith@example.com", specialty="Cardiology", working_hours={
+        self.doctor1 = Doctor.objects.create(name="Dr. Smith", specialty="Cardiology", working_hours={
             "Monday": {"start": "09:00", "end": "17:00"},
             "Tuesday": {"start": "09:00", "end": "17:00"},
             "Wednesday": {"start": "09:00", "end": "17:00"},
